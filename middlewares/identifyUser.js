@@ -1,5 +1,10 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+let prisma;
+try {
+  const { PrismaClient } = require("@prisma/client");
+  prisma = new PrismaClient();
+} catch (error) {
+  console.log("Prisma client not available");
+}
 const cache = require("../middlewares/cacheStore");
 
 const identifyUser = async ({ client, context, next }) => {
@@ -18,35 +23,24 @@ const identifyUser = async ({ client, context, next }) => {
       user: userId,
     });
 
-    const user = await prisma.users.findUnique({
-      where: {
-        email: userInfo.user.profile.email,
-      },
-    });
-
-    if (!user ) {
-      console.log("User not authorized or inactive");
-      return { success: false, message: "User not authorized or inactive" };
-    }
-
-    // Update slackUser ID if not set
-    if (!user?.slackUser) {
-      await prisma.users.update({
+    if (prisma) {
+      const user = await prisma.users.findUnique({
         where: {
-          id: user.id,
-        },
-        data: {
-          slackUser: userId,
+          email: userInfo.user.profile.email,
         },
       });
+
+      if (!user) {
+        console.log("User not authorized or inactive");
+        return { success: false, message: "User not authorized or inactive" };
+      }
     }
 
-    // Cache the userId for future requests
-    cache.set(userId, true);
+    cache.set(userId, userInfo);
     return next();
   } catch (error) {
-    console.error("Error in identifyUser middleware:", error);
-    return { success: false, message: "Error identifying user" };
+    console.error("Error in user identification:", error);
+    return { success: false, message: "Error in user identification" };
   }
 };
 

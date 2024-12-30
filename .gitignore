@@ -65,3 +65,4 @@ devInfo.md
 local-config.js
 development.js
 *-local.*
+*.tgz
