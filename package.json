@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "prepare": "npm run build",
+    "build": "echo \"No build step required\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/slack-ai-assistant-vijay.git"
   },
   "keywords": [
     "slack",
@@ -17,13 +23,15 @@
     "llm",
     "retoolify"
   ],
-  "author": "vijay singh",
-  "license": "ISC",
+  "author": {
+    "name": "Vijay Singh",
+    "url": "https://www.linkedin.com/in/vijaysingh-softwareengineer-italy/"
+  },
+  "license": "Apache-2.0 WITH Commons-Clause",
   "dependencies": {
     "@prisma/client": "^6.0.1",
     "@slack/bolt": "^4.1.1",
-    "node-cache": "^5.1.2",
-    "openai": "^4.76.3"
+    "node-cache": "^5.1.2"
   },
   "peerDependencies": {
     "dotenv": "^16.4.7"
@@ -33,5 +41,15 @@
   },
   "engines": {
     "node": ">=14.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "app.js",
+    "ai-actions/",
+    "events/",
+    "middlewares/",
+    "prisma/",
+    "LICENSE",
+    "README.md"
+  ]
 }
