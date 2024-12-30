@@ -1,6 +1,6 @@
 {
   "name": "slack-ai-app-retoolify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modular Slack AI assistant with optional user identification and database support",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/slack-ai-assistant-vijay.git"
+    "url": "git+https://github.com/vjvkrm/slack-ai-assistant-vijay.git"
   },
   "keywords": [
     "slack",
