@@ -50,14 +50,14 @@ Here's a glimpse of the Slack AI Assistant in action:
 
 ### Prerequisites
 
-1. Create a Slack App in your workspace with the following permissions:
-   - app_mentions:read
-   - chat:write
-   - im:history
-   - users:read
-   - users:read.email
+1. Create a Slack App in your workspace with assistant .
+
+For More reference : https://tools.slack.dev/bolt-js/getting-started
 
 2. Enable Socket Mode in your Slack App settings
+
+
+
 
 ### Installation
 
