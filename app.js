@@ -1,29 +1,14 @@
-const { App } = require("@slack/bolt");
-const { logAllEvents } = require("./events/logEvents");
-require("dotenv").config({ path: ".env.local" });
-const { identifyUser } = require("./middlewares/identifyUser");
-const { assistant } = require("./ai-actions/assistant");
+const SlackAIApp = require('./index');
 
-
-
-const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  socketMode: true,
-  appToken: process.env.SLACK_APP_TOKEN
-  
+// Initialize the app with configuration
+const slackApp = new SlackAIApp({
+  SLACK_BOT_TOKEN: process.env.SLACK_BOT_TOKEN,
+  SLACK_SIGNING_SECRET: process.env.SLACK_SIGNING_SECRET,
+  SLACK_APP_TOKEN: process.env.SLACK_APP_TOKEN,
+  LLM_API_URL: process.env.LLM_API_URL,
+  enableUserIdentification: false,
+  DATABASE_URL: process.env.DATABASE_URL
 });
 
-logAllEvents(app);
-app.use(identifyUser);
-app.assistant(assistant);
-
-// app initiate
-(async () => {
-  try {
-    await app.start();
-    console.log("⚡️ Bolt app is running in socket mode!");
-  } catch (error) {
-    console.error('Error starting app:', error);
-  }
-})();
+// Start the app
+slackApp.start();

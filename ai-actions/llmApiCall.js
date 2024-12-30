@@ -1,4 +1,4 @@
-const url = 'http://localhost:3001/slack/llm'
+const url = process.env.LLM_API_URL || 'http://localhost:3001/slack/llm'
 
 const llmBackend = async (arg = "how to celebrate diwali") => {
     try {

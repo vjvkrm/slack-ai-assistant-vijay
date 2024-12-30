@@ -38,7 +38,8 @@ const assistant = new Assistant({
 
     // now here is when we implement LLM service to generate and send response to user // we still need to send context and implment other features 
    // pending updates on sending channel history
-    const response = await llmBackend(userMessage.text)
+    
+    const response = await llmBackend(threadHistory)
 
     await say(
       `${response}`
