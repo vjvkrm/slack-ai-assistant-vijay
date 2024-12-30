@@ -40,6 +40,12 @@ The standout feature of this package is its ability to connect to any LLM backen
 - 💰 Control costs by managing requests
 - 🔒 Maintain data privacy by keeping sensitive information in-house
 
+## 📸 Screenshot
+
+Here's a glimpse of the Slack AI Assistant in action:
+
+![Slack AI Assistant Screenshot](assets/screenshot.png)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
