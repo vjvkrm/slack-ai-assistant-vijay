@@ -1,0 +1,59 @@
+# Development and local files
+.env
+.env.local
+.env.*
+*.local
+local.*
+
+# Source control
+.git
+.gitignore
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Development tools and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.editorconfig
+
+# Logs and debugging
+logs/
+*.log
+npm-debug.log*
+
+# Test files and coverage reports
+test/
+tests/
+coverage/
+.nyc_output/
+
+# Documentation and examples
+docs/
+examples/
+*.md
+!README.md
+
+# Build and temporary files
+dist/
+build/
+.tmp/
+.temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+todo.md
+devInfo.md
+local-config.js
+development.js
