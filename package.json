@@ -1,20 +1,37 @@
 {
+  "name": "slack-ai-app-retoolify",
+  "version": "1.0.0",
+  "description": "A modular Slack AI assistant with optional user identification and database support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "slack",
+    "ai",
+    "assistant",
+    "bot",
+    "chatbot",
+    "slack-bot",
+    "llm",
+    "retoolify"
+  ],
+  "author": "vijay singh",
+  "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.0.1",
     "@slack/bolt": "^4.1.1",
-    "dotenv": "^16.4.7",
     "node-cache": "^5.1.2",
-    "nodemon": "^3.1.9",
     "openai": "^4.76.3"
   },
-  "name": "slack-app",
-  "version": "1.0.0",
-  "description": "integraops slack app",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+  "peerDependencies": {
+    "dotenv": "^16.4.7"
   },
-  "author": "vijay singh",
-  "license": "ISC"
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
